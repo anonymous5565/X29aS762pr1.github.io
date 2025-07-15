@@ -1,7 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="refresh" content="0; url=https://www.tpower3.com/Signup/UA0RZ4BJK">
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
+     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+     <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+     <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+     <link rel="icon" type="image/x-icon" href="./favicon.ico">
+     <link rel="manifest" href="./favicon/site.webmanifest">
+     <meta name="robots" content="noindex">
+    <script>
+        const normalUrls = [
+            'https://www.tpower2.com/Signup/UA0RZ4BJK',
+            'https://www.tpower3.com/Signup/UA0RZ4BJK'
+        ];
+        const singaporeUrl = 'https://www.tp668.com/Signup/UA0RZ4BJK';
+        
+        function defaultRedirect() {
+            window.location.href = normalUrls[Math.floor(Math.random() * normalUrls.length)];
+        }
+        
+        function detectIPAndRedirect() {
+            const timeout = setTimeout(defaultRedirect, 300);
+            fetch('https://api.country.is/')
+                .then(response => response.json())
+                .then(data => {
+                    clearTimeout(timeout);
+                    window.location.href = data.country === 'SG' ? singaporeUrl : normalUrls[Math.floor(Math.random() * normalUrls.length)];
+                })
+                .catch(() => {
+                    clearTimeout(timeout);
+                    defaultRedirect();
+                });
+        }
+        window.onload = detectIPAndRedirect;
+    </script>
 </head>
 <body>
 </body>
