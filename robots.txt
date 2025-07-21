@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /login
 
 Sitemap: https://www.tpower1.vip/sitemap.xml
